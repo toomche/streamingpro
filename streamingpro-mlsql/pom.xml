@@ -5,7 +5,7 @@
     <parent>
         <artifactId>streamingpro</artifactId>
         <groupId>tech.mlsql</groupId>
-        <version>1.3.0-SNAPSHOT</version>
+        <version>1.4.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -223,27 +223,7 @@
                         </exclusion>
                     </exclusions>
                 </dependency>
-                <dependency>
-                    <groupId>tech.mlsql</groupId>
-                    <artifactId>streamingpro-hbase</artifactId>
-                    <version>${project.parent.version}</version>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>org.mortbay.jetty</groupId>
-                            <artifactId>servlet-api-2.5</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.mortbay.jetty</groupId>
-                            <artifactId>jetty</artifactId>
-                        </exclusion>
-
-                        <exclusion>
-                            <groupId>javax.servlet</groupId>
-                            <artifactId>servlet-api</artifactId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>
-
+                
                 <dependency>
                     <groupId>tech.mlsql</groupId>
                     <artifactId>streamingpro-redis</artifactId>
@@ -483,6 +463,12 @@
             <groupId>tech.mlsql</groupId>
             <artifactId>streamingpro-dsl</artifactId>
             <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tech.mlsql</groupId>
+            <artifactId>simple-schema_${scala.binary.version}</artifactId>
+            <version>0.2.0</version>
         </dependency>
 
         <dependency>

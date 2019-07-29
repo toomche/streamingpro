@@ -9,17 +9,18 @@ Break Features
 New Features
 --------
 
-- [Dynamically increase/decrease engine resource](http://docs.mlsql.tech/en/guide/et/child-parent.md)
+- [Dynamically increase/decrease engine resource](http://docs.mlsql.tech/en/guide/et/resource.md)
 - [Table cache](http://docs.mlsql.tech/en/guide/et/CacheExt.md) 
-- sessionPerRequest
-- directQuery Auth
+- sessionPerRequest  create new session for every request.
+- directQuery Auth   support directQuery auth.
 - set statement sql auth
 - [Stream callback](http://docs.mlsql.tech/en/guide/stream/callback.html)
 - [Stream batch mode(for sink)](http://docs.mlsql.tech/en/guide/stream/subquery.html)
 - [MySQL Binlog datasource](http://docs.mlsql.tech/en/guide/stream/binlog.html)
 - [Delta plus](http://docs.mlsql.tech/en/guide/datasource/delta_plus.md)
 - [Stream schema infer](http://docs.mlsql.tech/en/guide/stream/infer_schema.md)
-- [Kafka tool](http://docs.mlsql.tech/en/guide/stream/kafka_tool.md) 
+- [Kafka tool](http://docs.mlsql.tech/en/guide/stream/kafka_tool.md)
+- Script progress track  you can use "load __mlsql__.`/jobs/get/[jobid]` as output" to get the script processing. 
 
 
 

@@ -84,10 +84,18 @@ class BasicCondaEnvManager(options: Map[String, String]) extends Logging {
           val tempFile = "/tmp/" + UUID.randomUUID() + ".yaml"
           try {
             FileUtils.write(new File(tempFile), getCondaYamlContent(condaEnvPath), Charset.forName("utf-8"))
-            ShellCommand.execCmd(s"${condaPath} env create -n $projectEnvName --file $tempFile")
+            val command = s"${condaPath} env create -n $projectEnvName --file $tempFile"
+            logInfo(s"=== ${command} ===")
+            ShellCommand.execCmd(command)
           } catch {
             case e: Exception =>
-              removeEnv(condaEnvPath)
+              // try to remove the partial created env.
+              try {
+                removeEnv(condaEnvPath)
+              } catch {
+                case e1: Exception => // do nothing.
+              }
+
               throw e
           }
           finally {
@@ -103,7 +111,8 @@ class BasicCondaEnvManager(options: Map[String, String]) extends Logging {
   def removeEnv(condaEnvPath: Option[String]) = {
     val condaPath = validateCondaExec
     val projectEnvName = getCondaEnvName(condaEnvPath)
-    logInfo(s"${condaPath} env remove -y -n ${projectEnvName}")
+    val command = s"${condaPath} env remove -y -n ${projectEnvName}"
+    logInfo(command)
     ShellCommand.execCmd(s"${condaPath} env remove -y -n ${projectEnvName}")
   }
 
